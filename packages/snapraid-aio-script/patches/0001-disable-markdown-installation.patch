@@ -1,0 +1,39 @@
+From ed1ef14a7c4a680e2b08cfd509752663ab8c5687 Mon Sep 17 00:00:00 2001
+From: Paul Friedrich <mail@paulfriedrich.me>
+Date: Sat, 25 Feb 2023 15:17:54 +0100
+Subject: [PATCH 1/2] disable markdown installation
+
+---
+ snapraid-aio-script.sh | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/snapraid-aio-script.sh b/snapraid-aio-script.sh
+index 2c37082..dff7d28 100644
+--- a/snapraid-aio-script.sh
++++ b/snapraid-aio-script.sh
+@@ -106,14 +106,14 @@ function main(){
+     mklog "INFO: Script configuration file found."
+   fi
+ 
+-  # install markdown if not found
+-  if [ "$(dpkg-query -W -f='${Status}' python3-markdown 2>/dev/null | grep -c "ok installed")" -eq 0 ]; then
+-    echo "**Markdown has not been found and will be installed.**"
+-    mklog "WARN: Markdown has not been found and will be installed."
+-    # super silent and secret install command
+-    export DEBIAN_FRONTEND=noninteractive
+-    apt-get install -qq -o=Dpkg::Use-Pty=0 python3-markdown;
+-  fi
++#  # install markdown if not found
++#  if [ "$(dpkg-query -W -f='${Status}' python3-markdown 2>/dev/null | grep -c "ok installed")" -eq 0 ]; then
++#    echo "**Markdown has not been found and will be installed.**"
++#    mklog "WARN: Markdown has not been found and will be installed."
++#    # super silent and secret install command
++#    export DEBIAN_FRONTEND=noninteractive
++#    apt-get install -qq -o=Dpkg::Use-Pty=0 python3-markdown;
++#  fi
+ 
+   # sanity check first to make sure we can access the content and parity files
+   mklog "INFO: Checking SnapRAID disks"
+-- 
+2.38.3
+

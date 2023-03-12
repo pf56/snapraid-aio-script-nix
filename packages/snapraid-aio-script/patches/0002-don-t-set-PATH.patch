@@ -1,0 +1,25 @@
+From be50a36cdfdf7f3c08a1db7e43602b8aecbd4a4c Mon Sep 17 00:00:00 2001
+From: Paul Friedrich <mail@paulfriedrich.me>
+Date: Sun, 12 Mar 2023 13:35:52 +0100
+Subject: [PATCH 2/2] don't set PATH
+
+---
+ script-config.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/script-config.sh b/script-config.sh
+index 130b4db..f07a5d4 100644
+--- a/script-config.sh
++++ b/script-config.sh
+@@ -209,7 +209,7 @@ SECONDS=0 #Capture time
+ SNAPRAID_CONF="/etc/snapraid.conf"
+ 
+ # Expand PATH for smartctl
+-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
++#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+ 
+ # Extract info from SnapRAID config
+ SNAPRAID_CONF_LINES=$(grep -E '^[^#;]' $SNAPRAID_CONF)
+-- 
+2.38.3
+
